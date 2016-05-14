@@ -1,0 +1,100 @@
+<template name="signUpForm">
+     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content big-modal">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create An Account</h4>
+                </div>
+                <div class="modal-body padding-top">
+				    <form id="signUp">
+					    <div class="margin-top-xs">
+						    <h5><b>I am a:*</b></h5>
+						</div>
+						<div class="inline padding-right col-md-6 col-sm-6 col-xs-6">
+						    <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="Accredited Investor" >
+                                     Accredited Investor
+                                </label>
+                            </div>
+						    <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="Investment Advisor" >
+                                    Investment Advisor
+                                </label>
+                            </div>
+						</div>
+						<div class="inline padding-left col-md-6 col-sm-6 col-xs-6">
+						    <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="Share Holder" >
+                                    Share Holder
+                                </label>
+                            </div>
+						<div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="International Investor" >
+                                 International Investor
+                            </label>
+                        </div>
+						</div>
+						<div class="inline">
+				            <div class="form-group padding-right col-md-6 col-sm-6 col-xs-6">
+                                <label for="first_name">First Name*</label>
+							    <input type="text" class="form-control" name="firstName" id="firstName"
+                                placeholder="First Name">
+                            </div>
+                            <div class="form-group padding-left col-md-6 col-sm-6 col-xs-6">
+								
+								<label for="last_name">Last Name*</label>
+                                <input type="text" class="form-control" name="lastName" id="lastName" 
+                                placeholder="Last Name">
+                            </div>
+						</div>	
+                        <div class="margin-top-xs">
+					        <center><h6 class="col-md-12 col-sm-12 col-xs-12 margin-dot"><b>SIGN UP WITH THE EMAIL</b></h6></center>
+					    </div>
+						<div class="form-group">
+                            <label for="email">Email</label>
+							<input type="email" class="form-control center-block" name="email" id="email"
+                                placeholder="Introduce Email">
+                        </div>
+						<div class="inline">
+                            <div class="form-group padding-right col-md-6 col-sm-6 col-xs-6">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" 
+                                placeholder="Password">
+                            </div>
+						    <div class="form-group padding-left col-md-6 col-sm-6 col-xs-6">
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPasswrod" 
+                                    placeholder="Repeat Password">
+                            </div>
+						</div>
+						<div class="padding-off col-md-12 col-sm-12 col-xs-12">
+						    <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                    <h6>I accept the <a href="{{pathFor 'termsOfService'}}">Terms of Service</a> and <a href="{{pathFor 'privacyPolicy'}}">Privacy Policy</a> of Treveri Capital LLC.</h6>
+                                </label>
+                            </div>
+						</div>
+                        <div class="margin-top-xs">
+					        <button class="button xl center-block" href="#modal1"><b>Sign up</b></button>
+					    </div>
+						 <div class="margin-top-xs">
+					        <center><h6 class="col-md-12 col-sm-12 col-xs-12 margin-dot"><b>OR CONNECT</b></h6></center>
+					    </div>
+						<div class="margin-top-xs inline">
+					        <button class="btn-facebook col-m4-4 col-sm-4 col-xs-4"><b><i class="fa fa-facebook" aria-hidden="true"></i></b>&nbsp;&nbsp;facebook</button>
+							<button class="btn-twitter col-m4-4 col-sm-4 col-xs-4"><b><i class="fa fa-twitter" aria-hidden="true"></i></b>&nbsp;&nbsp;twitter</button>
+							<button class="btn-linkedin col-m4-4 col-sm-4 col-xs-4"><b><i class="fa fa-linkedin" aria-hidden="true"></i></b>&nbsp;&nbsp;LinkedIn</button>
+					    </div>
+						<h6 id="alert" class="col-md-12 col-sm-12 col-xs-12"><b>* Request field</b></h6>
+						
+					</form>
+				</div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</template>

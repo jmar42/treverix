@@ -1,0 +1,12 @@
+<template name="currentuser">
+    <div style="display:inline;">
+        {{#if notLoged true}}
+		    <button href="#" id="login" class="invert-button xm" ><b>Log in</b></button>
+			<button href="#" id="singup" class="button xm"><b>Sing up</b></button>
+        {{else}}
+		    <div style="color:#ffffff;">Welcome {{user}} {{>toMyPanel}} {{>logoutButton}}</div>
+        {{/if}} 
+    </div>	
+     {{>loginForm}}
+	 {{>signUpForm}}
+</template>

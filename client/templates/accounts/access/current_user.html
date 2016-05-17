@@ -2,9 +2,9 @@
     <div style="display:inline;">
         {{#if notLoged true}}
 		    <button href="#" id="login" class="invert-button xm" ><b>Log in</b></button>
-			<button href="#" id="singup" class="button xm"><b>Sing up</b></button>
+			<button href="#" id="singup" class="button xm"><b>Sign up</b></button>
         {{else}}
-		    <div style="color:#ffffff;">Welcome {{user}} {{>toMyPanel}} {{>logoutButton}}</div>
+		    <div class="margin-right" style="color:#ffffff;">Welcome {{user}} <button class="button xs post"><b>Post</b></button></div>
         {{/if}} 
     </div>	
      {{>loginForm}}

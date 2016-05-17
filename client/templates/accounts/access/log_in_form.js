@@ -2,26 +2,52 @@
   'submit form': function(e) { 
     e.preventDefault();
     logemail = $(e.target).find('[name=email]').val(); 	
-	logpassword = $(e.target).find('[name=password]').val();
-	Meteor.loginWithPassword(logemail, logpassword,);
-    setTimeout(function(){
-      if (Meteor.user()) {
-		  Router.go('home');
-                if (user2Role.find({user: Meteor.user()._id}).count()==0){
-                console.log('sin rol');
-                }
-				if (user2Role.find({role: userRole.findOne({rol: 'Administrador'})._id, user: Meteor.user()._id}).count()+1>1){
-                console.log('administrador');
-                }
-				if (user2Role.find({role: userRole.findOne({rol: 'Moderador'})._id, user: Meteor.user()._id}).count()+1>1){
-                console.log('moderador');
-                }
-       }else{
-            //        Router.go('home');
-                   alert('invalid email/password');
-       }
-       },2800);
-  }
+	logpassword = $(e.target).find('[name=logPassword]').val();
+	setTimeout(function(){
+            if (Meteor.user()) {
+            alert('Open session');
+            }else{
+                Meteor.loginWithPassword(logemail, logpassword,);
+            }
+		$('#loginModal').modal('hide');
+        },800); 
+  },
+  'click #gotoSignUp': function(){
+	  $('#loginModal').modal('hide');
+	  $('#signupModal').modal('show');
+	  
+  },
+  'click .loginFb': function(e){
+	  setTimeout(function(){
+            if (Meteor.user()) {
+            alert('Open session');
+            }else{
+                Meteor.loginWithFacebook();
+            }
+		$('#loginModal').modal('hide');
+        },800); 
+  },
+  'click .loginTw': function(){
+	  setTimeout(function(){
+            if (Meteor.user()) {
+            alert('Open session');
+            }else{
+                Meteor.loginWithTwitter();
+            }
+		$('#loginModal').modal('hide');
+        },800); 
+  },
+  'click .loginLd': function(){
+	  setTimeout(function(){
+            if (Meteor.user()) {
+            alert('Open session');
+            }else{
+                Meteor.loginWithLinkedin();
+            }
+		$('#loginModal').modal('hide');
+        },800); 
+  },
+  
 });
 
 

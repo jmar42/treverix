@@ -25,6 +25,10 @@ accounts-password
 iron:router
 accounts-ui
 service-configuration
+accounts-facebook
+accounts-twitter
+pauli:accounts-linkedin
+twitter
 mrt:bootstrap-3
 peppelg:bootstrap-3-modal
 sacha:spin

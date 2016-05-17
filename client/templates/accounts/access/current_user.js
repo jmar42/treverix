@@ -1,9 +1,12 @@
 Template.currentuser.helpers({
     user: function() {
-        return Meteor.user().username;
-    },
-    userFB: function(){
-	    return Meteor.user().profile.name;
+       // if(Meteor.user().services.facebook){
+			//return Meteor.user().profile.name;
+		//}
+		if(Meteor.user().username){
+			console.log('funciono');
+			return Meteor.user().username; 
+		}
     },
 	notLoged: function() {
         if (Meteor.userId()===null) {
@@ -25,4 +28,13 @@ Template.currentuser.events ({
     
     $('#signupModal').modal('show');
   },
+  'click .post': function() {
+            Router.go('postPanel');	
+  },
+  'click .logOut': function(){
+	  Meteor.logout(function() {
+        // Ruta después de salir de la cuenta
+        Router.go('home');
+        });
+  }
 });

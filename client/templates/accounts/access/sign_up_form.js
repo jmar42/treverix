@@ -2,34 +2,141 @@ Template.signUpForm.onRendered (function(){
 	$('#disscard').hide();
 });
 Template.signUpForm.helpers({
-  //trusted: function() {
-	//if(Session.get('truster')==1234){
-		//return true;
-	//};
 });
 Template.signUpForm.events({ 
-    //'submit #trueadmin': function(e) { 
-   // e.preventDefault(); 
-   // truster = $(e.target).find('[name=truster]').val(); 	
-    //Session.set('truster',truster);
- // },
+  'click .signLNKD': function(){
+	  $('#signWithEmail').html(''); //Delete the fields of the form
+	  $('.signLNKD').css("width","100%"); //Full linkedin
+	  $('.signFB').hide(); //Hide facebook button
+	  $('.signTW').hide(); //Hide twitter button
+	  Session.set('LNKD',true);
+	  Session.set('FB',false);
+	  Session.set('TW',false);
+  },
+  'click .signFB': function(){
+	  $('#signWithEmail').html(''); //Delete the fields of the form
+	  $('.signFB').css("width","100%"); //Full facebook
+	  $('.signLNKD').hide(); //Hide linkedin button
+	  $('.signTW').hide(); //Hide twitter button
+	  Session.set('LNKD',false);
+	  Session.set('FB',true);
+	  Session.set('TW',false);
+	  
+  },
+  'click .signTW': function(){
+	  $('#signWithEmail').html(''); //Delete the fields of the form
+	  $('.signTW').css("width","100%"); //Full twitter
+	  $('.signLNKD').hide(); //Hide linkedin button
+	  $('.signFB').hide(); //Hide facebook button
+	  Session.set('LNKD',false);
+	  Session.set('FB',false);
+	  Session.set('TW',true);
+  },
   'submit #signUp': function(e) { 
     e.preventDefault();
-	firstName=$('#firstName').val(); 
-    lastName=$('#lastName').val();
-	username=$('#username').val();
-    email=$('#useremail').val();
-    password1=$('#password').val();
-    password2=$('#confirmPassword').val();
-	checked=$('#checkbox:checked').val();
-	var llorar= $('[name="role"]');
+	//LinkedIn selected as login service.
+	if(Session.get('LNKD')==true){
+		checked=$('#checkbox:checked').val();
+	    var llorar= $('[name="role"]');
+            for(var i=0; i<llorar.length; i++) {
+				if (llorar[i].checked==true) {
+                inputTipo = llorar[i].value;
+				}		
+            }
+		if(inputTipo==undefined || checked==undefined){
+			if(inputTipo==undefined){
+				alert('You should select a rol');
+			}
+			if ( checked==undefined){
+				Bert.alert( 'You should read and accept the Terms of Service and Privacy Policy', 'danger', 'fixed-top');
+			}
+		}else{
+		    setTimeout(function(){
+                if (Meteor.user()) {
+                alert('Open session');
+                }else{
+                Meteor.loginWithLinkedin();
+                }
+                Session.set('checked',checked);
+		        Session.set('inputTipo',inputTipo);
+		        $('#signupModal').modal('hide');
+            },800); 
+		}
+	};
+	//Facebook selected as login service.
+	if(Session.get('FB')==true){
+		checked=$('#checkbox:checked').val();
+	    var llorar= $('[name="role"]');
+            for(var i=0; i<llorar.length; i++) {
+				if (llorar[i].checked==true) {
+                inputTipo = llorar[i].value;
+				}		
+            }
+		if(inputTipo==undefined || checked==undefined){
+			if(inputTipo==undefined){
+				alert('You should select a rol');
+			}
+			if ( checked==undefined){
+				Bert.alert( 'You should read and accept the Terms of Service and Privacy Policy', 'danger', 'fixed-top');
+			}
+		}else{
+		    setTimeout(function(){
+                if (Meteor.user()) {
+                alert('Open session');
+                }else{
+                    Meteor.loginWithFacebook();
+                }
+                Session.set('checked',checked);
+		        Session.set('inputTipo',inputTipo);
+		        $('#signupModal').modal('hide');
+            },800);  
+		}
+	};
+	//Twitter selected as login service.
+	if(Session.get('TW')==true){
+		checked=$('#checkbox:checked').val();
+	    var llorar= $('[name="role"]');
+            for(var i=0; i<llorar.length; i++) {
+				if (llorar[i].checked==true) {
+                inputTipo = llorar[i].value;
+				}		
+            }
+		if(inputTipo==undefined || checked==undefined){
+			if(inputTipo==undefined){
+				alert('You should select a rol');
+			}
+			if ( checked==undefined){
+				Bert.alert( 'You should read and accept the Terms of Service and Privacy Policy', 'danger', 'fixed-top');
+			}
+		}else{
+		    setTimeout(function(){
+                if (Meteor.user()) {
+                alert('Open session');
+                }else{
+                    Meteor.loginWithTwitter();
+                }
+                Session.set('checked',checked);
+		        Session.set('inputTipo',inputTipo);
+		        $('#signupModal').modal('hide');
+        },800); 
+		}
+	};
+	//Email and password selected as login service.	
+	if(Session.get('LNKD')!=true && Session.get('FB')!=true && Session.get('TW')!=true){
+	    firstName=$('#firstName').val(); 
+        lastName=$('#lastName').val();
+	    username=$('#username').val();
+        email=$('#useremail').val();
+        password1=$('#password').val();
+        password2=$('#confirmPassword').val();
+	    checked=$('#checkbox:checked').val();
+	    var llorar= $('[name="role"]');
             for(var i=0; i<llorar.length; i++) {
 				if (llorar[i].checked==true) {
                 inputTipo = llorar[i].value;
 				}
 						
             }
-	
         if( firstName=="" || lastName=="" || username==""|| email=="" || password1=="" || password1.length<8 && password1!=password2 || inputTipo==undefined || checked==undefined){
 			$('#alert').css("color","#a94442");
 			if(firstName==""){
@@ -68,7 +175,7 @@ Template.signUpForm.events({
 				$('.radio').css("color","#000");
 			}
 			if ( checked==undefined){
-				alert('You should read and accept the Terms of Service and Privacy Policy');
+				Bert.alert( 'You should read and accept the Terms of Service and Privacy Policy', 'danger', 'fixed-top');
 			}
 		
 		}else{
@@ -77,6 +184,7 @@ Template.signUpForm.events({
 			$('#signUp')[0].reset();
 			$('#signupModal').modal('hide');
 		}
+	}
 	
   }
 });

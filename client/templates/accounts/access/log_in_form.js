@@ -8,6 +8,7 @@
             alert('Open session');
             }else{
                 Meteor.loginWithPassword(logemail, logpassword,);
+				Router.go('home');
             }
 		$('#loginModal').modal('hide');
         },800); 

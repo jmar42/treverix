@@ -43,13 +43,14 @@
 					</div>
 						<div><h6 class="col-md-12 col-sm-12 col-xs-12 margin-dot margin-top-xs"></h6></div>
 						    <div class="margin-top-md">
-						        <button class="btn-linkedin col-md-4 col-sm-4 col-xs-4"><b><i class="fa fa-linkedin" aria-hidden="true"></i></b>&nbsp;&nbsp;LinkedIn</button>
-					            <button class="btn-facebook col-md-4 col-sm-4 col-xs-4"><b><i class="fa fa-facebook" aria-hidden="true"></i></b>&nbsp;&nbsp;facebook</button>
-							    <button class="btn-twitter col-md-4 col-sm-4 col-xs-4"><b><i class="fa fa-twitter" aria-hidden="true"></i></b>&nbsp;&nbsp;twitter</button>	
+						        <button type="button" class="btn-linkedin col-md-4 col-sm-4 col-xs-4 signLNKD"><b><i class="fa fa-linkedin" aria-hidden="true"></i></b>&nbsp;&nbsp;LinkedIn</button>
+					            <button type="button" class="btn-facebook col-md-4 col-sm-4 col-xs-4 signFB"><b><i class="fa fa-facebook" aria-hidden="true"></i></b>&nbsp;&nbsp;facebook</button>
+							    <button type="button" class="btn-twitter col-md-4 col-sm-4 col-xs-4 signTW"><b><i class="fa fa-twitter" aria-hidden="true"></i></b>&nbsp;&nbsp;twitter</button>	
 					        </div>
 							<br>
 						<div><h6 class="col-md-12 col-sm-12 col-xs-12 margin-dot margin-top-xs"></h6></div>
-					    <div>
+					<div id="signWithEmail">
+						<div>
 					        <h6 style="position:absolute;background-color:#ffffff;top:138px;left:45%;width:10%;padding-left:auto;padding-right:auto;"><b id="correct">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR</b></h6>
 							<h6 style="position:absolute;background-color:#ffffff;top:138px;left:35%;width:35%"><b id="disscard">&nbsp;&nbsp;&nbsp;PASSWORD DON'T MATCH</b></h6>
 					    </div>
@@ -78,16 +79,17 @@
                         </div>
 						<div class="inline">
                             <div class="password-field form-group padding-right col-md-6 col-sm-6 col-xs-6">
-                                <label class="inline" for="password">Password <h6 class="inline">(min 8 chars)</h6></label>
+                                <label class="inline" for="password">Password <h6 class="inline"></h6></label>
                                 <input type="password" class="form-control" id="password" 
                                 placeholder="Password">
                             </div>
 						    <div class="password-field form-group padding-left col-md-6 col-sm-6 col-xs-6">
-                                <label for="confirm_password">Confirm Password</label>
+                                <label class="inline" for="confirm_password">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirmPassword" 
                                     placeholder="Repeat Password">
                             </div>
 						</div>
+					</div>
 						<div class="padding-off col-md-12 col-sm-12 col-xs-12">
 						    <div class="checkbox">
                                 <label>
@@ -97,7 +99,7 @@
                             </div>
 						</div>
                         <div class="margin-top-xs">
-					        <button class="button xl center-block" href="#modal1"><b>Sign up</b></button>
+					        <button type="submit" form="signUp" class="button xl center-block" href="#modal1"><b>Sign up</b></button>
 					    </div>
 						<h6 id="alert" class="col-md-12 col-sm-12 col-xs-12"><b>* Required field</b></h6>
 						<center></center>

@@ -1,42 +1,36 @@
 // Server side configuration to social logins.
 
-// Facebook OAuth configuration
-
-if (ServiceConfiguration.configurations.find({
+//Facebook OAuth configuration
+ServiceConfiguration.configurations.remove({
     service: 'facebook'
-  }).count() === 0) {
-  ServiceConfiguration.configurations.insert({
+});
+
+ ServiceConfiguration.configurations.insert({
     service: 'facebook',
     appId: '1590077417989004',
-    secret: 'b7c8f61d2e3ca84464a6b6eee7d41927',
-    loginStyle: 'popup'
-  });
-}
+    secret: 'b7c8f61d2e3ca84464a6b6eee7d41927'
+});
 
 // Twitter OAuth configuration
-
-if (ServiceConfiguration.configurations.find({
+ServiceConfiguration.configurations.remove({
     service: 'twitter'
-  }).count() === 0) {
-  ServiceConfiguration.configurations.insert({
+});
+
+ ServiceConfiguration.configurations.insert({
     service: 'twitter',
-    consumerKey: 'p8A1KCLRpTs8snzsCHC1wmcx6',
-    secret: 'iSIOlCDxOiYKhdLkFIb6aOQOZZPXQbdTbmjbZWsXG3oC0zmvsy',
-    loginStyle: 'popup'
-  });
-}
+    consumerKey: '3m1tEJ790XIxr2DbkwqprFItW',
+    secret: 'u0yfc7pFCbqLeQW9xDvMJUwcJ7OjUyEHFVB5a0T2kP8e1wtjwd'
+});
 
 // Linked OAuth configuration
-
-if (ServiceConfiguration.configurations.find({
+ServiceConfiguration.configurations.remove({
     service: 'linkedin'
-  }).count() === 0) {
-  ServiceConfiguration.configurations.insert({
+});
+
+ ServiceConfiguration.configurations.insert({
     service: 'linkedin',
-    clientId: '75uz55p1p6tws5',
-    secret: 'd1mReCydtkSzipSM',
-    loginStyle: 'popup'
-  });
-}
+    clientId: '77pdwuxyaln9n5',
+    secret: 'nqDeT5wLXMe6ClyU'
+});
 
 //Meteor on create user configuration.

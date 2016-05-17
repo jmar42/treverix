@@ -29,8 +29,11 @@ accounts-facebook
 accounts-twitter
 pauli:accounts-linkedin
 twitter
-mrt:bootstrap-3
 peppelg:bootstrap-3-modal
 sacha:spin
 email
 fortawesome:fontawesome
+underscore
+mizzao:bootstrap-3
+pauli:linkedin
+accounts-oauth

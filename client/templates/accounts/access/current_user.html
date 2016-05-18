@@ -1,10 +1,28 @@
+<template name="profileDropDown">
+<div class="dropdown">
+  <button class="button xm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul style="background:transparent;color:#ffffff;" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#" style="color:#ffffff" >Post</a></li>
+    <li><a href={{pathFor 'profileSettings'}} style="color:#ffffff">Profile Settings</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#" class="logOut" style="color:#ffffff">Log out</a></li>
+  </ul>
+</div>
+</template>
+
 <template name="currentuser">
     <div style="display:inline;">
         {{#if notLoged true}}
 		    <button href="#" id="login" class="invert-button xm" ><b>Log in</b></button>
 			<button href="#" id="singup" class="button xm"><b>Sign up</b></button>
         {{else}}
-		    <div class="margin-right" style="color:#ffffff;">Welcome {{user}} <button class="button xm post"><b>Post</b></button> <button class="button xm logOut"><b>Log out</b></button></div>
+		    <div style="display:inline;color:#ffffff;" class="margin-right">
+			<div style="display:inline;"> Welcome {{user}}</div>
+			<div style="display:inline;">{{>profileDropDown}}</div>
+			</div>
         {{/if}} 
     </div>	
      {{>loginForm}}

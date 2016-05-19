@@ -169,6 +169,11 @@ a:hover {
 	text-decoration:none;
 }
 
+.dropdown:hover .dropdown-menu{
+	display:block;
+	margin-top:0;
+	}
+
 .hero {
 	background:url(outer-space-hd-wallpaper.jpg);
     background-size: cover;

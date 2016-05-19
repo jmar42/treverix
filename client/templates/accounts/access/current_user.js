@@ -1,3 +1,59 @@
+//ProfileDropDown
+Template.profileDropDown.helpers({
+    user: function() {
+        if(Meteor.user().username){
+			return Meteor.user().profile.firstName + " " + Meteor.user().profile.lastName; //Full name of the current user
+		}
+		if(Meteor.user().services.facebook){
+			//Subscription
+			Meteor.subscribe('allUsers');
+			//Update the profile for the first time
+			if(Session.get('username')){
+				Meteor.users.update(Meteor.userId(), {$set: {
+					"profile.username": Session.get('username'), 
+					"profile.role": Session.get('inputTipo'), 
+					"profile.joined": Session.get('joined')
+					}
+				});
+			}
+	        return Meteor.user().profile.name; //Name registered with facebook
+		}
+		if(Meteor.user().services.twitter){
+			//Subscription
+			Meteor.subscribe('allUsers');
+			//Update the profile for the first time
+			if(Session.get('username')){
+				Meteor.users.update(Meteor.userId(), {$set: {
+					"profile.username": Session.get('username'), 
+					"profile.role": Session.get('inputTipo'), 
+					"profile.joined": Session.get('joined')
+					}
+				});
+			}
+			return Meteor.user().profile.name; //Name registered with twitter
+		}
+		if(Meteor.user().services.linkedin){
+		    //Subscription
+			Meteor.subscribe('allUsers');
+			//Update the profile for the first time
+			if(Session.get('username')){
+				Meteor.users.update(Meteor.userId(), {$set: {
+					"profile.username": Session.get('username'), 
+					"profile.role": Session.get('inputTipo'), 
+					"profile.joined": Session.get('joined')
+					}
+				});
+			}
+			return Meteor.user().profile.firstName; //Name registered with linkedin
+		}
+
+    }
+});
+Template.profileDropDown.events ({
+
+	
+});
+//CurrentUser
 
 Template.currentuser.helpers({
     user: function() {

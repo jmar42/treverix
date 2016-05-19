@@ -1,14 +1,15 @@
 <template name="profileDropDown">
 <div class="dropdown">
-  <button class="button xm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
+  <button class="button" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    {{user}}
     <span class="caret"></span>
   </button>
-  <ul style="background:transparent;color:#ffffff;" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#" style="color:#ffffff" >Post</a></li>
-    <li><a href={{pathFor 'profileSettings'}} style="color:#ffffff">Profile Settings</a></li>
+  <ul style="background:#ffffff;color:#ff3d00;" class="dropdown-menu">
+    <li><a href={{pathFor 'myProfile'}}><h5><i class="glyphicon glyphicon-user"></i> Profile</h5><h6>View your profile</h6></a></li>
+    <li><a href={{pathFor 'profileSettings'}}><h5><i class="glyphicon glyphicon-cog"></i> Edit account</h5><h6>Edit your profile</h6></a></li>
+	<li><a href="#"><h5><i class="glyphicon glyphicon-list-alt"></i> About</h5><h6>Treverix</h6></a></li>
     <li role="separator" class="divider"></li>
-    <li><a href="#" class="logOut" style="color:#ffffff">Log out</a></li>
+    <li><a href="#" class="logOut"><h5><i class="glyphicon glyphicon-off"></i> Log out</h5></a></li>
   </ul>
 </div>
 </template>
@@ -16,11 +17,10 @@
 <template name="currentuser">
     <div style="display:inline;">
         {{#if notLoged true}}
-		    <button href="#" id="login" class="invert-button xm" ><b>Log in</b></button>
-			<button href="#" id="singup" class="button xm"><b>Sign up</b></button>
+		    <button href="#" id="singup" class="button xm"><b>Register</b></button>
+			<button href="#" id="login" class="invert-button xm" ><b>Sign in</b></button>
         {{else}}
 		    <div style="display:inline;color:#ffffff;" class="margin-right">
-			<div style="display:inline;"> Welcome {{user}}</div>
 			<div style="display:inline;">{{>profileDropDown}}</div>
 			</div>
         {{/if}} 

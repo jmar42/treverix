@@ -1,0 +1,40 @@
+<template name="myProfile">
+    <div style="height:500px;width:80%;margin-left:10%;">
+            <br><br>
+			<center><h4><b>This is your profile on Treverix.com</b></h4></center>
+			<br><br><br>
+			    <div class="row">
+							<div class="col-md-2 col-sm-2 col-xs-2">
+			                <img style="width:150px;height:150px" src="{{profilePic}}"/>
+                            </div>
+							<div class="col-md-2 col-sm-2 col-xs-2">
+                                <a href={{pathFor 'profileSettings'}}><h5><i class="glyphicon glyphicon-cog"></i> Edit account</h5><h6>Edit your profile</h6></a>
+                            </div>
+							<br><br>
+				</div>
+				<div class="row">
+							<div class="col-md-2 col-sm-2 col-xs-2">
+                                <h4>Name</h4>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+								<h4>{{name}}</h4>
+                            </div>
+				</div>
+				<div class="row">
+							<div class="col-md-2 col-sm-2 col-xs-2">
+                                <h4>Treverix points</h4>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+								<h4>0</h4>
+                            </div>
+				</div>
+				<div class="row">
+							<div class="col-md-2 col-sm-2 col-xs-2">
+                                <h4>Joined</h4>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+								<h4>{{joined}}</h4>
+                            </div>
+			    </div>				
+	</div>
+</template>

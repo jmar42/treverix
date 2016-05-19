@@ -1,9 +1,11 @@
-//signWithEmail
+//On Rendered
 Template.signUpForm.onRendered (function(){
 	$('#disscard').hide();
 });
+//Helpers
 Template.signUpForm.helpers({
 });
+//Events
 Template.signUpForm.events({ 
   'click .signLNKD': function(){
 	  $('#signWithEmail1').html(''); //Delete the fields of the form
@@ -38,6 +40,10 @@ Template.signUpForm.events({
   },
   'submit #signUp': function(e) { 
     e.preventDefault();
+	//Join date.
+		d= new Date();
+		h= {d:"" +d.getDate(), m:"" + (d.getMonth()+1),y:""+ d.getFullYear(),h:""+d.getHours(),i:""+d.getMinutes()};
+	    joined = h.m +'-'+h.d+'-'+h.y;
 	//LinkedIn selected as login service.
 	if(Session.get('LNKD')==true){
 		checked=$('#checkbox:checked').val();
@@ -70,6 +76,7 @@ Template.signUpForm.events({
                 }
 		        Session.set('inputTipo',inputTipo);
 				Session.set('username',username);
+				Session.set('joined',joined);
 		        $('#signupModal').modal('hide');
             },800); 
 		}
@@ -106,6 +113,7 @@ Template.signUpForm.events({
                 }
 		        Session.set('inputTipo',inputTipo);
 				Session.set('username',username);
+				Session.set('joined',joined);
 		        $('#signupModal').modal('hide');
             },800);  
 		}
@@ -142,6 +150,7 @@ Template.signUpForm.events({
                 }
 		        Session.set('inputTipo',inputTipo);
 				Session.set('username',username);
+				Session.set('joined',joined);
 		        $('#signupModal').modal('hide');
         },800); 
 		}
@@ -204,7 +213,7 @@ Template.signUpForm.events({
 			}
 		
 		}else{
-			Accounts.createUser({username:username, email:email,profile:{firstName:firstName, lastName:lastName, username: username, role:inputTipo},
+			Accounts.createUser({username:username, email:email,profile:{firstName:firstName, lastName:lastName, username: username, role:inputTipo, joined:joined},
 			password:password1,});
 			$('#signUp')[0].reset();
 			$('#signupModal').modal('hide');

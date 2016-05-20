@@ -6,35 +6,35 @@
 			<br><br><br>
 					    <div class="bio-field form-group">
                                 <label for="bio">Bio</label>
-							    <textarea type="text" class="form-control" name="bio" id="bio" rows="5" value="" placeholder=""></textarea>
+							    <textarea type="text" class="form-control" name="bio" id="bio" rows="5" value="{{bio}}" placeholder=""></textarea>
                         </div>
 						<div class="inline">
 				            <div class="first-name form-group  padding-right col-md-6 col-sm-6 col-xs-6">
                                 <label for="first_name">First Name</label>
-							    <input type="text" class="form-control" name="firstName" id="firstName"
-                                placeholder="First Name">
+							    <input type="text" class="form-control" name="edit_firstName" id="firstName"
+                                value="{{firstName}}" placeholder="First Name">
                             </div>
                             <div class="last-name form-group has-feedback padding-left col-md-6 col-sm-6 col-xs-6">
 								<label for="last_name">Last Name</label>
-                                <input type="text" class="form-control" name="lastName" id="lastName" 
+                                <input type="text" class="form-control" name="edit_lastName" id="lastName" 
+								value="{{lastName}}"
                                 placeholder="Last Name">
                             </div>
 						</div>	
-					<div class="email-field form-group">
+					<div class="form-group">
                             <label for="email">Email</label>
-							<input type="email" class="form-control center-block" name="email" id="useremail"
-                                placeholder="Introduce Email">
-								
+							<input type="text" class="form-control" name="edit_email" id="email"
+                                value="{{email}}" placeholder="Insert your email">
                     </div>
 					<div class="twusername-field form-group">
                             <label for="twusername">Twitter username</label>
 							<input type="text" class="form-control" name="twusername" id="twusername"
-                                placeholder="@">
+                                value="{{twusername}}" placeholder="@">
                     </div>
 					<div class="website-field form-group">
                             <label for="website">Website</label>
 							<input type="text" class="form-control" name="website" id="website"
-                                placeholder="http://">
+                                value="{{website}}" placeholder="http://">
                     </div>
 					<div>
 					    <div class="margin-top-xs padding-off col-md-2 col-sm-2 col-xs-2">
@@ -43,42 +43,40 @@
 						<div class="padding-left col-md-5 col-sm-5 col-xs-5">
 						    <div class="radio">
                                 <label>
-                                    <input type="radio" name="role" id="role"  value="Accredited Investor" >
+                                    <input type="radio" name="role" class="currentRole" id="role"  value="Accredited Investor" checked>
                                      Accredited Investor
                                 </label>
                             </div>
 						    <div class="radio">
                                 <label>
-                                    <input type="radio" name="role" id="role"  value="Investment Advisor" >
+                                    <input type="radio" name="role" class="currentRole" id="role"  value="Investment Advisor" >
                                     Investment Advisor
                                 </label>
                             </div>
 							<div class="radio">
                                 <label>
-                                    <input type="radio" name="role" id="role"  value="Share Holder" >
+                                    <input type="radio" name="role" class="currentRole" id="role"  value="Share Holder" >
                                     Share Holder
                                 </label>
                             </div>
 						    <div class="radio">
                             <label>
-                                <input type="radio" name="role" id="role"  value="International Investor" >
+                                <input type="radio" name="role" class="currentRole" id="role"  value="International Investor" >
                                  International Investor
                             </label>
                             </div>
 						</div>
 					</div>
 						<div class="padding-off col-md-12 col-sm-12 col-xs-12">
-						    <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="listing" id="checkbox" value="true" >
+						    <div class="inline">
+                                    <input type="checkbox" name="listing" id="checkbox1">
                                     <h6>New listing</h6>
-                                </label>
                             </div>
 						</div>
 						<div class="padding-off col-md-12 col-sm-12 col-xs-12">
-						    <div class="checkbox">
+						    <div>
                                 <label>
-                                    <input type="checkbox" name="replies" id="checkbox" value="true" >
+                                    <input type="checkbox" name="replies" id="checkbox2">
                                     <h6>Replies to my comments</h6>
                                 </label>
                             </div>
@@ -87,5 +85,8 @@
 					        <button type="submit" form="profileConfig" class="button xl center-block"><b>Submit</b></button>
 					    </div>	
 					</form>
+	{{role}}
+	{{listin}}
+	{{replies}}
 	</div>
 </template>
